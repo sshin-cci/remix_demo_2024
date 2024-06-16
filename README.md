@@ -82,3 +82,102 @@ GET / 200 - - 20.353 ms
 
 ### [remix tutorial](https://remix.run/docs/en/2.9.2/start/tutorial#remix-tutorial)
 
+```
+> npx create-remix@latest --template remix-run/remix/templates/remix-tutorial
+
+ remix   v2.9.2 💿 Let's build a better website...
+
+   dir   Where should we create your new project?
+         remix-tutorial
+
+      ◼  Template: Using remix-run/remix/templates/remix-tutorial...
+      ✔  Template copied
+
+   git   Initialize a new git repository?
+         No
+
+  deps   Install dependencies with npm?
+         Yes
+
+      ✔  Dependencies installed
+
+  done   That's it!
+
+         Enter your project directory using cd ./remix-tutorial
+         Check out README.md for development and deploy instructions.
+
+         Join the community at https://rmx.as/discord
+
+> npm install        
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated @humanwhocodes/config-array@0.11.14: Use @eslint/config-array instead
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+
+added 792 packages, and audited 793 packages in 7s
+
+248 packages are looking for funding
+  run `npm fund` for details
+
+2 vulnerabilities (1 moderate, 1 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+
+```
+
+
+#### [Links](https://remix.run/docs/en/2.9.2/route/links)
+
+The links function defines which <link> elements to add to the page when the user visits a route.
+
+```
+import type { LinksFunction } from "@remix-run/node";
+import appStylesHref from "./app.css?url";
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: appStylesHref },
+];
+```
+
+#### [Outlet](https://remix.run/docs/en/2.9.2/components/outlet)
+```
+import { Outlet, } from "@remix-run/react";
+
+// existing imports & code
+
+export default function App() {
+  return (
+    <html lang="en">
+      {/* other elements */}
+      <body>
+        <div id="sidebar">{/* other elements */}</div>
+        <div id="detail">
+          <Outlet />
+        </div>
+        {/* other elements */}
+      </body>
+    </html>
+  );
+}
+```
+
+### [Link](https://remix.run/docs/en/2.9.2/components/link)
+
+Change the sidebar <a href> to <Link to>
+
+
+```
+   <ul>
+      <li>
+         <Link to={`/contacts/1`}>Your Name</Link>
+      </li>
+      <li>
+         <Link to={`/contacts/2`}>Your Friend</Link>
+      </li>
+   </ul>
+```
