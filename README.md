@@ -181,3 +181,40 @@ Change the sidebar <a href> to <Link to>
       </li>
    </ul>
 ```
+
+
+### Flat Routes
+https://remix.run/docs/en/main/file-conventions/routes#dot-delimiters
+```
+ app/
+├── routes/
+│   ├── _auth.login.tsx
+│   ├── _auth.register.tsx
+│   ├── _auth.tsx
+│   ├── _index.tsx
+│   ├── about.tsx
+│   ├── concerts._index.tsx
+│   ├── concerts.$city.tsx
+│   ├── concerts.trending.tsx
+│   └── concerts.tsx
+└── root.tsx
+
+```
+
+URL |	Matched Route	|	Layout
+-- | -- | --
+/	|	app/routes/_index.tsx	|	app/root.tsx
+/login	|	app/routes/_auth.login.tsx	|	app/routes/_auth.tsx
+/register	|	app/routes/_auth.register.tsx	|	app/routes/_auth.tsx
+/about	|	app/routes/about.tsx	|	app/root.tsx
+/concerts	|	app/routes/concerts._index.tsx	|	app/routes/concerts.tsx
+/concerts/trending	|	app/routes/concerts.trending.tsx	|	app/routes/concerts.tsx
+/concerts/salt-lake-city	|	app/routes/concerts.$city.tsx	|	app/routes/concerts.tsx
+
+```
+export async function loader({params}: LoaderFunctionArgs) {
+  console.log(params.city);
+}
+```
+
+https://github.com/remix-run/remix/discussions/4482
