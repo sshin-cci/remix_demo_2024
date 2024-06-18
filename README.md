@@ -21,7 +21,12 @@ Focused on web standards and modern web app UX, you’re simply going to build b
 ### Base of Remix
 - Route
 - Loader
+   - useLoaderData
+   - useRouteLoaderData
+   - Single Fetch
 - Action
+   - Form
+- ErrorBoundary
 
 
 ### [quickstart](https://remix.run/docs/en/2.9.2/start/quickstart)
@@ -166,21 +171,6 @@ export default function App() {
 }
 ```
 
-### [Link](https://remix.run/docs/en/2.9.2/components/link)
-
-Change the sidebar <a href> to <Link to>
-
-
-```
-   <ul>
-      <li>
-         <Link to={`/contacts/1`}>Your Name</Link>
-      </li>
-      <li>
-         <Link to={`/contacts/2`}>Your Friend</Link>
-      </li>
-   </ul>
-```
 
 
 ### Flat Routes
@@ -218,3 +208,11 @@ export async function loader({params}: LoaderFunctionArgs) {
 ```
 
 https://github.com/remix-run/remix/discussions/4482
+
+
+### [todo-demo](https://dev.classmethod.jp/articles/remix-form-component/)
+
+https://qiita.com/fsdg-takada/items/5a24382bc73c5bd85c2d
+
+
+### [Form Validation](https://zenn.dev/chimame/articles/b10d7e5f5011f9)
